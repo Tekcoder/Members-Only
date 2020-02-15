@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
 
+  post 'sessions/new', to: 'sessions#new'
 end
