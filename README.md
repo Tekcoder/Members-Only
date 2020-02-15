@@ -77,4 +77,4 @@ We implemented a signin and signout functionality for the user, which opens the 
 [Michael Hartl - Advanced Login](https://www.learnenough.com/ruby-on-rails-4th-edition-tutorial/advanced_login)
 [Michael Hartl - Updating, showing, and deleting users](https://www.learnenough.com/ruby-on-rails-4th-edition-tutorial/updating_and_deleting_users)
 [Michael Hartl - Account Activation](https://www.learnenough.com/ruby-on-rails-4th-edition-tutorial/account_activation)
-[Michael Hartl - Password Rese](https://www.learnenough.com/ruby-on-rails-4th-edition-tutorial/password_reset)
+[Michael Hartl - Password Reset](https://www.learnenough.com/ruby-on-rails-4th-edition-tutorial/password_reset)
