@@ -1,6 +1,14 @@
 class User < ApplicationRecord
     before_create :remember_token
     has_secure_password
+
+    attr_accessor :remember_token
+    
+    def remember
+      self.remember_token = User.new_token
+      update_attribute(:remember_digest, User.digest(remember_token))
+    end
+
     
     # Returns the hash digest of the given string.
   def User.digest(string)
