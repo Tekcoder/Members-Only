@@ -8,7 +8,6 @@ class User < ApplicationRecord
       update_attribute(:remember_digest, User.digest(remember_token))
     end
 
-    
     # Returns the hash digest of the given string.
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -19,4 +18,6 @@ class User < ApplicationRecord
     def User.new_token
      Digest::SHA1.hexdigest SecureRandom.urlsafe_base64.to_s
     end
+    
+    
 end
