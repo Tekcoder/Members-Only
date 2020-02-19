@@ -17,6 +17,6 @@ class User < ApplicationRecord
   end
   
     def User.new_token
-     Digest::SHA1.hexdiges SecureRandom.urlsafe_base64.to_s
+     Digest::SHA1.hexdigest SecureRandom.urlsafe_base64.to_s
     end
 end
