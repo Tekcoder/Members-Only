@@ -19,5 +19,8 @@ class User < ApplicationRecord
      Digest::SHA1.hexdigest SecureRandom.urlsafe_base64.to_s
     end
     
-    
+    # Forgets a user.
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
 end

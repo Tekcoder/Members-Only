@@ -10,7 +10,8 @@ def create
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+         @post.user_id = current_user.id
+        format.html { redirect_to root_url, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -19,4 +20,18 @@ def create
     end
 end
 
+def index
+  @posts = Post.all
+end
+
+private
+    
+    def post_params
+      params.require(:post).permit(:title, :body)
+    end
+    
+    def logged_in_user
+      redirect_to login_path unless logged_in?
+    end
+      
 end
