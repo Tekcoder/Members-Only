@@ -78,3 +78,5 @@ We implemented a signin and signout functionality for the user, which opens the 
 [Michael Hartl - Updating, showing, and deleting users](https://www.learnenough.com/ruby-on-rails-4th-edition-tutorial/updating_and_deleting_users)
 [Michael Hartl - Account Activation](https://www.learnenough.com/ruby-on-rails-4th-edition-tutorial/account_activation)
 [Michael Hartl - Password Reset](https://www.learnenough.com/ruby-on-rails-4th-edition-tutorial/password_reset)
+
+[OPENCLASSROOMS](https://openclassrooms.com/en/courses/4510766-build-dynamic-websites-with-rails/4703291-create-your-first-resource)
