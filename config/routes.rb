@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'posts#index'
-  resources :sessions
-  resources :posts, only: %i[new create index]
-  get 'login', to: 'sessions#new', as: 'login'
-  get 'logout', to: 'sessions#destroy', as: 'logout'
+  
+  
+  get '/login', to: 'sessions#new'
+  delete '/logout', to: 'sessions#destroy'
 
-  post 'login', to: 'sessions#new'
+  get '/register', to: 'users#new'
+  post '/register', to: 'users#create'
+
+  post 'login', to: 'sessions#create'
+
+  resources :posts, only: [:new, :create, :index]
+
 end
