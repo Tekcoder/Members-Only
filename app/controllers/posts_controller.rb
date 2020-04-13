@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :logged_in_user, only: %I[new create]
+  before_action :logged_in_user, only: [:new, :create]
 
   def new
     @post = Post.new
@@ -7,30 +7,29 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
-    respond_to do |format|
-      if @post.save
-        @post.user_id = current_user.id
-        format.html { redirect_to root_url, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.save
+      @post.user_id = current_user.id
+      flash.now[:success] = 'Post was successfully created.'
+      redirect_to posts_path
+    else
+      render 'new'
     end
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.all.sort{|a,b| b.created_at <=> a.created_at }
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:heading, :content)
   end
 
   def logged_in_user
-    redirect_to login_path unless logged_in?
+    unless logged_in?
+    flash[:notice] = 'Kindly login.'
+    redirect_to login_path 
   end
+end
 end

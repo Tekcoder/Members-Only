@@ -1,10 +1,27 @@
-<%= form_for(@post) do |f| %>
+<div class="flex items-center mx-4 mb-12">
+  <h1 class="text-xl">New Post</h1>
+</div>
+<%= form_for(@post, url: posts_path) do |f| %>
+<% if @post.errors.any? %>
+<ul class="errors list-disc">
+  <% @post.errors.full_messages.each do |error| %>
+  <li class="text-red-500 mx-4"><%= error %></li>
+  <%end%>
+</ul>
+<%end%>
+<div class="flex flex-col outline">
+  <div class="flex my-2 mx-4">
+    <%= f.label :heading, class: 'w-1/6' %>
+    <%= f.text_field :heading, class: 'w-1/2 border rounded' %>
+  </div>
+  
+  <div class="flex my-2 mx-4">
+    <%= f.label :content, class: 'w-1/6' %>
+    <%= f.text_area :content, class: 'w-1/2 border rounded' %>
+  </div>
 
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-
-    <%= f.submit "Create Post" %>
-  <% end %>
+  <div class="flex my-2 mx-4">
+    <%= f.submit "create post", :class => 'px-4 py-1 cursor-pointer rounded bg-blue-500 text-white'  %>
+  </div>
+</div>
+<%end%>
