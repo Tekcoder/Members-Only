@@ -1,0 +1,15 @@
+<h2>All Posts</h2>
+<% @posts.each do |post| %>
+<div class="border rounded p-2 my-2">
+  <h1 class="title text-lg px-4 py-2 font-medium">
+    <%= post.heading %>
+    <span class="text-gray-300">#<%= post.id %></span>
+  </h1>
+  <p class="text-base tracking-normal"><%= post.content %></p>
+  <p class="text-gray-400">posted in <%= distance_of_time_in_words(post.created_at, DateTime.now) %>
+    <% if logged_in? %>
+      by <%= post.author.name.titleize %>
+    <%end%>
+  </p>
+</div>
+<%end%>
